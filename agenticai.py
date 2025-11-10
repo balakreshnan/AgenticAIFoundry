@@ -103,10 +103,12 @@ configure_azure_monitor(connection_string=connection_string) #enable telemetry c
 from opentelemetry import trace
 tracer = trace.get_tracer(__name__)
 
+credential = DefaultAzureCredential(logging_enable=True)
+
 def code_interpreter() -> str:
     code_interpreter = CodeInterpreterTool()
     # Use a fresh client instance for this operation
-    with AIProjectClient(endpoint=endpoint, credential=DefaultAzureCredential()) as _client:
+    with AIProjectClient(endpoint=endpoint, credential=credential) as _client:
         agent = _client.agents.create_agent(
             model=os.environ["MODEL_DEPLOYMENT_NAME"],
             name="codeint-agent",
