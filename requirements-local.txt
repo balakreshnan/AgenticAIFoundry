@@ -1,5 +1,5 @@
-azure-ai-projects
-azure-ai-agents
+azure-ai-projects==1.1.0b4
+azure-ai-agents==1.2.0b3
 azure-ai-evaluation
 azure-ai-evaluation[redteam]
 azure-ai-inference
